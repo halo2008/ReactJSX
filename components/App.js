@@ -46,13 +46,3 @@ var App = React.createClass({
 
 	}
 });
-const object = {
-  id: 1,
-  name: "ola",
-  blabla: function(){}
-
-};
-
-var bla1 = function () {
-  return {};
-}

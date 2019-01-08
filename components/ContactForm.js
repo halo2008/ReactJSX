@@ -5,46 +5,44 @@ class ContactForm extends React.Component{
 	}
 	handleSubmit(event) {
 		event.preventDefault()
-		const name = event.target.elements.fsName.value
-		const lastName = event.target.elements.lsName.value
-		const email = event.target.elements.mail.value
+		const firstName = event.target.firstName.value
+		const lastName = event.target.lastName.value
+		const email = event.target.email.value
 		console.log(name)
-		this.props.addContact(name, lastName, email)
+		if(firstName.trim() !== '' && lastName.trim() !== '' && email.trim() !=='' ){
+			this.props.addContact(firstName, lastName, email)
+		}		
 	}
 
-
 	render() {
-
 		return (
-
 			<form onSubmit={this.handleSubmit} className={'contactForm'}>
 				<input
-					name = 'fsName'
+					name = 'firstName'
 					type='text'
 					placeholder='imię'
 					value={this.props.contact.fristName}
-
+					onChange={this.handleSubmit}
 					/>
 
 				<input
-					name= 'lsName'
+					name= 'lastName'
 					type='text'
 					placeholder='Nazwisko'
 					value={this.props.contact.lastName}
-
+					onChange={this.handleSubmit}
 					/>
 
 				<input
-					name ='mail'
+					name ='email'
 					type='email'
 					placeholder='Email'
 					value={this.props.contact.email}
+					onChange={this.handleSubmit}
 					/>
 
 				<button type='submit'>Dodaj Kontakt</button>
 			</form>
-
-
 		)
 	}
 }
